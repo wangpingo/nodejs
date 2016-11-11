@@ -1,5 +1,8 @@
-[
-  "Kazakhsatan is a huge country... what goes on there",
-  "This weather is making me craaazy",
-  "My neighbor sort of howsl at night"
-]
+{
+  "name": "1.0",
+  "version": "0.0.1",
+  "description":"Minimalist multiroom chat server",
+  "dependencies":{
+    "nimble":"*"
+  }
+}
