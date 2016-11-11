@@ -1,0 +1,10 @@
+function asyncFunction(callback){
+    setTimeout(callback,2000);
+}
+var color="blue";
+(function(color){
+    asyncFunction(function(){
+        console.log(color);
+    })
+})(color);
+color="green";
