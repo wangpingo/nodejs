@@ -2,10 +2,11 @@
  * Created by 35031 on 2016/11/12.
  */
 var http=require('http');
-var itens=[];
+var items=[];
 var server=http.createServer(function(req,res){
    if('/'==req.url){
-       switch (req.url){
+       console.log(req.url);
+       switch (req.method){
            case 'GET':
                show(res);
                break;
@@ -46,7 +47,7 @@ function badRequest(res){
     res.setHeader('Content-Type','text/plain');
     res.end('Bad Resquest');
 }
-var qs=require('queryString');
+var qs=require('querystring');
 function add(req,res){
     var body='';
     req.setEncoding('utf8');
@@ -55,6 +56,5 @@ function add(req,res){
         var obj=qs.parse(body);
         items.push(obj.item);
         show(res);
-
     });
 }
