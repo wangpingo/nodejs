@@ -55,5 +55,6 @@ function add(req,res){
         var obj=qs.parse(body);
         items.push(obj.item);
         show(res);
+
     });
 }
