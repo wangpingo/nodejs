@@ -96,6 +96,7 @@ exports.workHitlistHtml=function(rows){
     }
     html+='</table>';
     return html;
+
 };
 exports.workFormHtml=function(){
   var html='<form method="POST" action="/">'+
