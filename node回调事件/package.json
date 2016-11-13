@@ -4,6 +4,7 @@
   "description":"Minimalist multiroom chat server",
   "dependencies":{
     "nimble":"*",
-    "formidable":"*"
+    "formidable":"*",
+    "mysql":"*"
   }
 }
