@@ -35,6 +35,7 @@ function upload(req,res){
         console.log(fields);
         console.log(files);
         res.end('upload complete!');
+
     });
 
 }
