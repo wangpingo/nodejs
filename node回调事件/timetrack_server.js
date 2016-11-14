@@ -8,7 +8,7 @@ var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '123456',
-    database: 'timetrack'
+    database: 'maker'
 });
 var server = http.createServer(function (req, res) {
     switch (req.method) {
@@ -21,7 +21,7 @@ var server = http.createServer(function (req, res) {
                     work.archive(db, req, res);
                     break;
                 case '/delete':
-                    work.delete(db.req, res);
+                    work.delete(db,req, res);
                     break;
             }
             break;
@@ -44,7 +44,7 @@ db.query(
     +"date DATE,"
     +"archived INT(1) DEFAULT 0,"
     +"description LONGTEXT,"
-    +"PRIMARY KEY(id)",
+    +"PRIMARY KEY(id))",
     function(err){
         if(err) throw err;
         console.log('Server started...');

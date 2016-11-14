@@ -28,7 +28,7 @@ exports.actionForm = function (id, path, label) {
 exports.add=function(db,req,res){
   exports.parseReceiveData(req,function(work){
       db.query(
-          "IINSERT INTO work (hours,date,description)"+
+          "INSERT INTO work (hours,date,description)"+
               "VALUES(?,?,?)",
           [work.hours,work.date,work.description],
           function(err){
@@ -63,16 +63,17 @@ exports.archive=function(db,req,res){
   })
 };
 exports.show=function(db,res,showArchived){
-  var query='SELECT *FROM work'+
-          "WHERE archived=?"+
+  var query='SELECT * FROM work '+
+          "WHERE archived= ? "+
           "ORDER BY date DESC";
+    console.log(query);
     var archiveValue=(showArchived)?1:0;
     db.query(
         query,
         [archiveValue],
         function(err,rows){
             if(err) throw err;
-            html=(showArchived)?'':'<a href="/archived">Archived Work</a><br/>';
+            html=(showArchived)? '':'<a href="/archived">Archived Work</a><br/>';
             html+=exports.workHitlistHtml(rows);
             html+=exports.workFormHtml();
             exports.sendHtml(res,html);
@@ -89,10 +90,11 @@ exports.workHitlistHtml=function(rows){
         html+='<td>'+rows[i].date+'</td>';
         html+='<td>'+rows[i].hours+'</td>';
         html+='<td>'+rows[i].description+'</td>';
-    }
     if(!rows[i].archived){
         html+='<td>'+exports.workArchiveForm(rows[i].id)+'</td>';
-        html+='</tr>';
+    }
+    html+='<td>'+exports.workDeleteForm(rows[i].id)+'</td>'
+    html+='</tr>';
     }
     html+='</table>';
     return html;

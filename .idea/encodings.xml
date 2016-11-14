@@ -4,5 +4,7 @@
     <file url="file://$PROJECT_DIR$/chatrooms/others/helloWord.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/chatrooms/others/stream.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/chatrooms/public/javascripts/jquery-1.12.3.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/node回调事件/lib/timetrack.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/node回调事件/timetrack_server.js" charset="UTF-8" />
   </component>
 </project>
